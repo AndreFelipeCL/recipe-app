@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RecipeAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="recipe-app" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.afcl.recipeapp.RecipeAppApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

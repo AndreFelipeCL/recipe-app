@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    container_name: postgres_recipe-app
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: recipe
+      POSTGRES_PASSWORD: recipe
+      POSTGRES_DB: recipe
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+volumes:
+  database-data:
