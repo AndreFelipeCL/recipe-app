@@ -16,7 +16,8 @@ import java.math.BigDecimal;
 public class Ingredient {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "INGREDIENT_ID_SEQ", sequenceName = "INGREDIENT_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INGREDIENT_ID_SEQ")
 	private Long id;
 
 	private String description;
