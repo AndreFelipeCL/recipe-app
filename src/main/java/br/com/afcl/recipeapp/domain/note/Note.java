@@ -12,16 +12,16 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-public class Notes {
+public class Note {
 
 	@Id
-	@SequenceGenerator(name = "NOTES_ID_SEQ", sequenceName = "NOTES_ID_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NOTES_ID_SEQ")
+	@SequenceGenerator(name = "NOTE_ID_SEQ", sequenceName = "NOTE_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NOTE_ID_SEQ")
 	private Long id;
 
 	@OneToOne
 	private Recipe recipe;
 
 	@Lob
-	private String recipeNotes;
+	private String recipeNote;
 }

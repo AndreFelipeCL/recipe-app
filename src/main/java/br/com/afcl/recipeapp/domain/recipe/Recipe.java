@@ -1,7 +1,7 @@
 package br.com.afcl.recipeapp.domain.recipe;
 
 import br.com.afcl.recipeapp.domain.ingredient.Ingredient;
-import br.com.afcl.recipeapp.domain.note.Notes;
+import br.com.afcl.recipeapp.domain.note.Note;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -42,7 +42,7 @@ public class Recipe {
 	private Byte[] image;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Notes notes;
+	private Note note;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
 	private Set<Ingredient> ingredients;
