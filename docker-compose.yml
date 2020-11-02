@@ -5,7 +5,7 @@ services:
   postgres:
     image: postgres
     restart: always
-    container_name: postgres_recipe-app
+    container_name: postgres_recipe_app
     ports:
     - 5432:5432
     environment:

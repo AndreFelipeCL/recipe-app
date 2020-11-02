@@ -15,7 +15,8 @@ import javax.persistence.*;
 public class Notes {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "NOTES_ID_SEQ", sequenceName = "NOTES_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NOTES_ID_SEQ")
 	private Long id;
 
 	@OneToOne

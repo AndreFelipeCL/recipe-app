@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/recipe
+    username: recipe
+    password: recipe
+    driverClassName: org.postgresql.Driver
+    hikari:
+      idle-timeout: 10000
+      maximum-pool-size: 10
+
+  liquibase:
+    change-log: classpath:db/changelog-master/db.changelog-master.xml
+    enabled: false
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate

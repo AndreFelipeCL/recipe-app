@@ -17,7 +17,8 @@ import java.util.Set;
 public class Recipe {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "RECIPE_ID_SEQ", sequenceName = "RECIPE_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RECIPE_ID_SEQ")
 	private Long id;
 
 	private String description;
@@ -45,4 +46,10 @@ public class Recipe {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
 	private Set<Ingredient> ingredients;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "recipe_category",
+			joinColumns = @JoinColumn(name = "recipe_id", nullable = false, referencedColumnName = "ID"),
+			inverseJoinColumns = @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "ID"))
+	private Set<Category> categories;
 }
