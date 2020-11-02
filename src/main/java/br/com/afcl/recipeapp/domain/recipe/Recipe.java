@@ -1,9 +1,11 @@
 package br.com.afcl.recipeapp.domain.recipe;
 
+import br.com.afcl.recipeapp.domain.ingredient.Ingredient;
 import br.com.afcl.recipeapp.domain.note.Notes;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author André Felipe C. Leite
@@ -40,4 +42,7 @@ public class Recipe {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Notes notes;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+	private Set<Ingredient> ingredients;
 }
