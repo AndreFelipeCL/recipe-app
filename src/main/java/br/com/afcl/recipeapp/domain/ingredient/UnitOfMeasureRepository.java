@@ -3,6 +3,8 @@ package br.com.afcl.recipeapp.domain.ingredient;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @author André Felipe C. Leite
  * @version 1.0
@@ -10,4 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
+
+	Optional<UnitOfMeasure> findByDescription(final String description);
+
 }

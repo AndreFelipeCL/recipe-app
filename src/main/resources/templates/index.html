@@ -4,8 +4,37 @@
         <meta charset="UTF-8"/>
         <title>Recipe App Home</title>
     </head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <body>
         <h1>Welcome to Recipe App</h1>
         <h3>Must reload the page...</h3>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="recipe : ${recipes}">
+                <td th:text="${recipe.id}"></td>
+                <td th:text="${recipe.description}"></td>
+            </tr>
+        </table>
+
     </body>
 </html>

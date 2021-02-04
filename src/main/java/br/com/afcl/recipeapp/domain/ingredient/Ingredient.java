@@ -1,7 +1,9 @@
 package br.com.afcl.recipeapp.domain.ingredient;
 
 import br.com.afcl.recipeapp.domain.recipe.Recipe;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,6 +15,7 @@ import java.math.BigDecimal;
  */
 @Data
 @Entity
+@NoArgsConstructor
 public class Ingredient {
 
 	@Id
@@ -29,4 +32,11 @@ public class Ingredient {
 
 	@ManyToOne
 	private Recipe recipe;
+
+	public Ingredient(final String description, final BigDecimal amount, final UnitOfMeasure unitOfMeasure, final Recipe recipe) {
+		this.description = description;
+		this.amount = amount;
+		this.unitOfMeasure = unitOfMeasure;
+		this.recipe = recipe;
+	}
 }
