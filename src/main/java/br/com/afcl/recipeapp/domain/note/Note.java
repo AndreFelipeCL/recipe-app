@@ -1,7 +1,9 @@
 package br.com.afcl.recipeapp.domain.note;
 
 import br.com.afcl.recipeapp.domain.recipe.Recipe;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -10,8 +12,10 @@ import javax.persistence.*;
  * @version 1.0
  * @since 01/11/2020 - 21:48
  */
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 public class Note {
 
 	@Id
@@ -24,4 +28,5 @@ public class Note {
 
 	@Lob
 	private String recipeNote;
+
 }

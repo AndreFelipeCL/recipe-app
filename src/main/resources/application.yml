@@ -1,4 +1,13 @@
+server:
+  port: 8090
+
 spring:
+  application:
+    name: Recipe App
+
+  profiles:
+    active: local
+
   datasource:
     url: jdbc:postgresql://localhost:5432/recipe
     username: recipe
@@ -7,13 +16,18 @@ spring:
     hikari:
       idle-timeout: 10000
       maximum-pool-size: 10
+    initialization-mode: always
+#    data:
+#      - classpath:initial_load_data.sql
+
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      properties:
+        format-sql: false
 
   liquibase:
     change-log: classpath:db/changelog-master/db.changelog-master.xml
     enabled: false
-
-  jpa:
-    show-sql: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: none

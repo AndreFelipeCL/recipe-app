@@ -1,8 +1,10 @@
 package br.com.afcl.recipeapp.domain.recipe;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -10,7 +12,8 @@ import java.util.Set;
  * @version 1.0
  * @since 02/11/2020 - 14:36
  */
-@Data
+@Getter
+@Setter
 @Entity
 public class Category {
 
@@ -22,5 +25,5 @@ public class Category {
 	private String categoryName;
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-	private Set<Recipe> recipe;
+	private Set<Recipe> recipe = new HashSet<>();
 }

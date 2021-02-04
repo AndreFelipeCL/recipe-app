@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: recipe
       POSTGRES_DB: recipe
     volumes:
-      - database-data:/var/lib/postgresql/data/
+      - database-data-local:/var/lib/postgresql/data/
 
 volumes:
-  database-data:
+  database-data-local:
