@@ -9,9 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpStatusCodeException;
 
-import javax.xml.ws.http.HTTPException;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -36,7 +35,8 @@ public class IndexController {
 	@ResponseBody
 	public Category findCategoryByName(@PathVariable("categoryName") final String categoryName) {
 		return categoryRepository.findOneByCategoryName(categoryName)
-				.orElseThrow(() -> new HTTPException(HttpStatus.NOT_FOUND.value()));
+				.orElseThrow(() -> new HttpStatusCodeException(HttpStatus.NOT_FOUND) {
+				});
 	}
 
 	@GetMapping("/recipe/all")

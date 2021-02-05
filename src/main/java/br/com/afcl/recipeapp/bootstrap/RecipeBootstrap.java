@@ -32,7 +32,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		List<Recipe> recipes = new ArrayList<>(2);
 
 		//get UOMs
-		Optional<UnitOfMeasure> eachUomOptional = unitOfMeasureRepository.findByDescription("Each");
+		Optional<UnitOfMeasure> eachUomOptional = unitOfMeasureRepository.findByDescription("Pinch");
 
 		if (!eachUomOptional.isPresent()) {
 			throw new RuntimeException("Expected UOM Not Found");
@@ -50,13 +50,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 			throw new RuntimeException("Expected UOM Not Found");
 		}
 
-		Optional<UnitOfMeasure> dashUomOptional = unitOfMeasureRepository.findByDescription("Dash");
+		Optional<UnitOfMeasure> dashUomOptional = unitOfMeasureRepository.findByDescription("Ounce");
 
 		if (!dashUomOptional.isPresent()) {
 			throw new RuntimeException("Expected UOM Not Found");
 		}
 
-		Optional<UnitOfMeasure> pintUomOptional = unitOfMeasureRepository.findByDescription("Pint");
+		Optional<UnitOfMeasure> pintUomOptional = unitOfMeasureRepository.findByDescription("Pinch");
 
 		if (!pintUomOptional.isPresent()) {
 			throw new RuntimeException("Expected UOM Not Found");
