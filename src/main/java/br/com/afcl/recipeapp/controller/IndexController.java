@@ -1,15 +1,14 @@
 package br.com.afcl.recipeapp.controller;
 
-import br.com.afcl.recipeapp.domain.recipe.Category;
-import br.com.afcl.recipeapp.domain.recipe.CategoryRepository;
 import br.com.afcl.recipeapp.domain.recipe.Recipe;
 import br.com.afcl.recipeapp.service.RecipeApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Set;
 
@@ -22,21 +21,11 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class IndexController {
 
-	private final CategoryRepository categoryRepository;
 	private final RecipeApplicationService recipeApplicationService;
 
 	@RequestMapping({"", "/", "index"})
 	public String getIndexPage() {
 		return "index";
-	}
-
-	@GetMapping("/category/{categoryName}")
-	@ResponseStatus(HttpStatus.FOUND)
-	@ResponseBody
-	public Category findCategoryByName(@PathVariable("categoryName") final String categoryName) {
-		return categoryRepository.findOneByCategoryName(categoryName)
-				.orElseThrow(() -> new HttpStatusCodeException(HttpStatus.NOT_FOUND) {
-				});
 	}
 
 	@GetMapping("/recipe/all")
