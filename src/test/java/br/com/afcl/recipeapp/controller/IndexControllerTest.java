@@ -2,6 +2,7 @@ package br.com.afcl.recipeapp.controller;
 
 import br.com.afcl.recipeapp.domain.recipe.Recipe;
 import br.com.afcl.recipeapp.service.RecipeApplicationService;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -58,8 +58,8 @@ class IndexControllerTest {
 		Mockito.verify(service, Mockito.atMostOnce()).findAll();
 		Mockito.verify(this.model, Mockito.atMostOnce()).addAttribute(Mockito.eq("recipes"), argumentCaptor.capture());
 		Set<Recipe> argumentCaptorValue = argumentCaptor.getValue();
-		Assertions.assertEquals(2, argumentCaptorValue.size());
-		Assertions.assertEquals(expectedRecipes, argumentCaptorValue);
+		Assert.assertEquals(2, argumentCaptorValue.size());
+		Assert.assertEquals(expectedRecipes, argumentCaptorValue);
 	}
 
 	@Test
@@ -69,4 +69,6 @@ class IndexControllerTest {
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.view().name("index"));
 	}
+
+
 }

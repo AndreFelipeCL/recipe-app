@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class UnitOfMeasure {
 
 	@Id
-	@SequenceGenerator(name = "INGREDIENT_ID_SEQ", sequenceName = "INGREDIENT_ID_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INGREDIENT_ID_SEQ")
+	@SequenceGenerator(name = "UNIT_OF_MEASURE_ID_SEQ", sequenceName = "UNIT_OF_MEASURE_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UNIT_OF_MEASURE_ID_SEQ")
 	private Long id;
 
 	private String description;
